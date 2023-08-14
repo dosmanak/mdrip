@@ -22,19 +22,15 @@ jobs:
         go-version: '1.20'
 
     - name: Build
-      run: go build -v ./...
+      run: go build -v
 
     - name: Test
-      run: go test -v ./...
-
-    - name: Examine
-      run: |
-        find $GOROOT
+      run: go test -v
 
     - name: Release
       uses: actions/upload-artifact@v3
       with:
         name: ${{ github.event.repository.name }}
-        path: $GOROOT/bin/${{ github.event.repository.name }}
+        path: ${{ github.event.repository.name }}
       
 
