@@ -26,3 +26,14 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+    - name: Examine
+      run: find
+
+    - name: Release
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ github.event.repository.name }}
+        path: bin/${{ github.event.repository.name }}
+      
+
